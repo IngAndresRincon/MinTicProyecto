@@ -30,6 +30,24 @@ public class UsuarioDAO {
 			//JOptionPane.showMessageDialog(null, "No se Registro la persona");
 		}
 	}
+	
+	public void RegistrarUsuario(UsuarioVO Usuario) {
+		Conexion conex = new Conexion();
+		try {
+			Statement estatuto = conex.getConnection().createStatement();
+			estatuto.executeUpdate(
+					"INSERT INTO usuarios VALUES("+Usuario.getDocumento()+","+Usuario.getEmail()+","+
+							Usuario.getNombre()+","+Usuario.getPassword()+","+Usuario.getUsuario()
+					);
+			/*JOptionPane.showMessageDialog(null, "Se ha registrado Exitosamente", "Información",
+					JOptionPane.INFORMATION_MESSAGE);*/
+			estatuto.close();
+			conex.desconectar();
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+			//JOptionPane.showMessageDialog(null, "No se Registro la persona");
+		}
+	}
 
 
 }

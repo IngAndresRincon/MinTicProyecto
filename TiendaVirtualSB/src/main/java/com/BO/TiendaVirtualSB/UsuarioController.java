@@ -30,5 +30,15 @@ public class UsuarioController {
 	    
 	 }
 	
+	@RequestMapping("/Login")
+	
+	public void RegistrarUsuario(UsuarioVO Usuario) 
+	 {
+		UsuarioDAO Dao=new UsuarioDAO(); 
+	    Dao.RegistrarUsuario(Usuario);
+	    
+	 }
+	
+	
 	
 }
