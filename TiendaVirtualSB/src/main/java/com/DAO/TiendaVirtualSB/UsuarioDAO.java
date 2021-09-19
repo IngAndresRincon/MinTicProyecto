@@ -37,8 +37,9 @@ public class UsuarioDAO {
 		try {
 			Statement estatuto = conex.getConnection().createStatement();
 			estatuto.executeUpdate(
-					"INSERT INTO usuarios VALUES("+Usuario.getDocumento()+","+Usuario.getEmail()+","+Usuario.getNombre()+
-					","+Usuario.getPassword()+","+Usuario.getUsuario()+")"
+					//"INSERT INTO usuarios VALUES("+Usuario.getDocumento()+","+Usuario.getEmail()+","+Usuario.getNombre()+
+					//","+Usuario.getPassword()+","+Usuario.getUsuario()+")"
+					"Insert into usuarios values(123456,'admininicial@gmail.com','Admin','admin123456','admininicial');"
 					);
 			/*JOptionPane.showMessageDialog(null, "Se ha registrado Exitosamente", "Información",
 					JOptionPane.INFORMATION_MESSAGE);*/

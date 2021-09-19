@@ -30,7 +30,7 @@ public class UsuarioController {
 	    
 	 }
 	
-	@RequestMapping("/RegistrarUsuario")
+	@RequestMapping("/Usuarios")
 	
 	public void RegistrarUsuario(UsuarioVO Usuario) 
 	 {

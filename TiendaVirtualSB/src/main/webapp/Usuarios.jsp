@@ -27,11 +27,11 @@
 	<ul>
 		<li><p>
 				<b>User:</b>
-				<%= request.getParameter("user_id")%>
+				<%= request.getParameter("num_cedula")%>
 			</p></li>
 		<li><p>
 				<b>Password:</b>
-				<%= request.getParameter("password")%>
+				<%= request.getParameter("usuarios")%>
 			</p></li>
 		
 	</ul>
