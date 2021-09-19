@@ -16,7 +16,7 @@
 	usu.setPassword(request.getParameter("contraseña"));
 	usu.setEmail(request.getParameter("correo"));
 	//cli.setIdCliente(id);	cli.setApellidoCliente(request.getParameter("apellido"));
-	//uc.LoginUsuario(usu);
+	uc.RegistrarUsuario(usu);
 
 %>
 <head>
