@@ -13,6 +13,7 @@
 	usu.setUsuario(request.getParameter("user_id"));
 	usu.setPassword(request.getParameter("password"));
 	//cli.setIdCliente(id);	cli.setApellidoCliente(request.getParameter("apellido"));
+	// usu.Contador = 20;
 	uc.LoginUsuario(usu);
 
 %>
@@ -20,18 +21,18 @@
 <title>Page Redirection</title>
 </head>
 <body>
-	<h1>Using GET Method to Read Form Data</h1>
-	<ul>
-		<li><p>
-				<b>User:</b>
-				<%= request.getParameter("user_id")%>
-			</p></li>
-		<li><p>
-				<b>Password:</b>
-				<%= request.getParameter("password")%>
-			</p></li>
-		
-	</ul>
-	
+		<% 
+		if (usu.Contador > 0)
+		{
+			response.sendRedirect("Navegacion.html");
+			//out.println("El valor del contador es: "+ usu.Contador);
+		}
+		else
+		{
+			response.sendRedirect("modificarPersona.html");
+		}
+					 				
+		%>
+
 </body>
 </html>

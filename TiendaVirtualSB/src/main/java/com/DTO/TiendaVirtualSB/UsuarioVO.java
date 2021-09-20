@@ -7,8 +7,10 @@ public class UsuarioVO {
 	private String Nombre;
 	private String Password;
 	private String Usuario;
+	public static Integer Contador;
 	
 	
+
 	public Integer getDocumento() {
 		return Documento;
 	}
