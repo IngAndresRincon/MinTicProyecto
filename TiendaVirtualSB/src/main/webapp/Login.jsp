@@ -29,7 +29,7 @@
 		}
 		else
 		{
-			response.sendRedirect("modificarPersona.html");
+			response.sendRedirect("Alerta.html");
 		}
 					 				
 		%>

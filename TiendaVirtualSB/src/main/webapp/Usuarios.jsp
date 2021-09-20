@@ -13,7 +13,7 @@
 	usu.setDocumento(Integer.parseInt(request.getParameter("num_cedula")));
 	usu.setUsuario(request.getParameter("usuarios"));
 	usu.setNombre(request.getParameter("nombre"));
-	usu.setPassword(request.getParameter("contraseña"));
+	usu.setPassword(request.getParameter("password"));
 	usu.setEmail(request.getParameter("correo"));
 	//cli.setIdCliente(id);	cli.setApellidoCliente(request.getParameter("apellido"));
 	uc.RegistrarUsuario(usu);
@@ -31,7 +31,7 @@
 			</p></li>
 		<li><p>
 				<b>Password:</b>
-				<%= request.getParameter("usuarios")%>
+				<%= request.getParameter("password")%>
 			</p></li>
 		
 	</ul>
