@@ -40,4 +40,14 @@ public class UsuarioController {
 	 }
 	
 	
+	@RequestMapping("/Usuarios")
+	
+	public void BorrarUsuario(long Documento) 
+	 {
+		UsuarioDAO Dao=new UsuarioDAO(); 
+	    Dao.BorrarUsuario(Documento);
+	    
+	 }
+	
+	
 }

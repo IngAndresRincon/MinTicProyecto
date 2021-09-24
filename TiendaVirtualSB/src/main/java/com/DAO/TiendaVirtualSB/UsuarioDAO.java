@@ -36,24 +36,7 @@ public class UsuarioDAO {
 		   
 		  }
 		
-		
-		
-//				
-//		Conexion conex = new Conexion();
-//		try {
-//			Statement estatuto = conex.getConnection().createStatement();
-//			estatuto.executeUpdate(
-//					"SELECT COUNT(cedula_usuario) FROM usuario where usuario ='" + Usuario.getUsuario() +
-//					"' and password = '"+ Usuario.getPassword()+"'"
-//					);
-//			/*JOptionPane.showMessageDialog(null, "Se ha registrado Exitosamente", "Información",
-//					JOptionPane.INFORMATION_MESSAGE);*/
-//			estatuto.close();
-//			conex.desconectar();
-//		} catch (SQLException e) {
-//			System.out.println(e.getMessage());
-//			//JOptionPane.showMessageDialog(null, "No se Registro la persona");
-//		}
+
 	}
 	
 	
@@ -85,5 +68,22 @@ public class UsuarioDAO {
 		}
 	}
 
+	public void BorrarUsuario(long Documento)
+	{
+		
+		Conexion conex = new Conexion();
+		try {
+			Statement Query = conex.getConnection().createStatement();
+			Query.executeUpdate("Delete from usuarios where cedula_usuario = " + Documento
+					);
+			/*JOptionPane.showMessageDialog(null, "Se ha registrado Exitosamente", "Información",
+					JOptionPane.INFORMATION_MESSAGE);*/
+			Query.close();
+			conex.desconectar();
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+			//JOptionPane.showMessageDialog(null, "No se Registro la persona");
+		}
+	}
 
 }
