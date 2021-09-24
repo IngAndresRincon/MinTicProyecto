@@ -32,6 +32,11 @@
 		long Documento =  Integer.parseInt(request.getParameter("num_cedula"));
 		uc.BorrarUsuario(Documento);	
 	}
+	else if (boton.equals("Actualizar"))
+	{
+		
+	}
+		
 	
 
 		
