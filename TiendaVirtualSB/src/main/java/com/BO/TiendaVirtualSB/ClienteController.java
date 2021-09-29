@@ -8,7 +8,9 @@ import org.springframework.boot.json.JsonParser;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.DAO.TiendaVirtualSB.ClienteDAO;
+import com.DAO.TiendaVirtualSB.UsuarioDAO;
 import com.DTO.TiendaVirtualSB.ClienteVO;
+import com.DTO.TiendaVirtualSB.UsuarioVO;
 import com.fasterxml.jackson.databind.JsonNode;
 
 
@@ -16,59 +18,87 @@ import com.fasterxml.jackson.databind.JsonNode;
 public class ClienteController {
 	
 	
-	@RequestMapping("/registrarPersona")
-	public void registrarPersona(ClienteVO persona) 
+//	@RequestMapping("/registrarPersona")
+//	public void registrarPersona(ClienteVO persona) 
+//	 {
+//		ClienteDAO Dao=new ClienteDAO(); 
+//	    Dao.registrarPersona(persona);
+//	    
+//	 }
+//	   
+//	 
+//	 
+//	/**
+//	 * permite consultar el Cliente asociado al documento enviado
+//	 * como parametro 
+//	 * @param documento 
+//	 * @return
+//	 */
+//	
+//	@RequestMapping("/consultarPersona")
+//	public ArrayList<ClienteVO> consultarPersona(int documento) {
+//		ClienteDAO Dao=new ClienteDAO(); 
+//	return 	Dao.consultarPersona(documento);
+//		
+//	}
+//
+//
+//
+//	/**
+//	 * permite consultar la lista de Clientes
+//	 * @return
+//	 */
+//	@RequestMapping("/listarPersonas")
+//	public ArrayList< ClienteVO> listaDePersonas() {
+//		ClienteDAO Dao=new ClienteDAO(); 
+//			
+//		return Dao.listaDePersonas();
+//		
+//	}
+//
+//	
+//	/**
+//	 * Permite modificar un Clientes
+//	 * @return
+//	 */
+//	@RequestMapping("/modificarPersona")
+//	
+//	public void modificarPersona(ClienteVO persona) 
+//	 {
+//		ClienteDAO Dao=new ClienteDAO(); 
+//	    Dao.modificarPersona(persona);
+//	    
+//	 }
+	
+
+	
+//	@RequestMapping("/Clientes")
+//	
+	public void RegistrarCliente(ClienteVO Cliente) 
 	 {
 		ClienteDAO Dao=new ClienteDAO(); 
-	    Dao.registrarPersona(persona);
+	    Dao.RegistrarCliente(Cliente);
 	    
 	 }
-	   
-	 
-	 
-	/**
-	 * permite consultar el Cliente asociado al documento enviado
-	 * como parametro 
-	 * @param documento 
-	 * @return
-	 */
 	
-	@RequestMapping("/consultarPersona")
-	public ArrayList<ClienteVO> consultarPersona(int documento) {
-		ClienteDAO Dao=new ClienteDAO(); 
-	return 	Dao.consultarPersona(documento);
-		
-	}
-
-
-
-	/**
-	 * permite consultar la lista de Clientes
-	 * @return
-	 */
-	@RequestMapping("/listarPersonas")
-	public ArrayList< ClienteVO> listaDePersonas() {
-		ClienteDAO Dao=new ClienteDAO(); 
-			
-		return Dao.listaDePersonas();
-		
-	}
-
 	
-	/**
-	 * Permite modificar un Clientes
-	 * @return
-	 */
-	@RequestMapping("/modificarPersona")
-	
-	public void modificarPersona(ClienteVO persona) 
+//	@RequestMapping("/Clientes")
+//	
+	public void BorrarCliente(long Documento) 
 	 {
 		ClienteDAO Dao=new ClienteDAO(); 
-	    Dao.modificarPersona(persona);
+	    Dao.BorrarCliente(Documento);
 	    
 	 }
+//	
+//	@RequestMapping("/Clientes")
 	
-	//-----------------------------------------
+	public void ActualizarCliente(ClienteVO Documento) 
+	 {
+		ClienteDAO Dao=new ClienteDAO(); 
+	    Dao.ActualizarCliente(Documento);
+	    
+	 }
 	
 
 

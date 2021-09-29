@@ -2,51 +2,45 @@ package com.DTO.TiendaVirtualSB;
 
 public class ClienteVO {
 	
-	 private Integer idCliente;
-	 private String nombreCliente;
-	 private String apellidoCliente;
+	 private Integer Cedula;
+	 private String Telefono;
+	 private String Nombre;
+	 private String Email;
+	 private String Direccion;
 	 
-	 /**
-	  * @return the idCliente
-	  */
-	 public Integer getIdCliente() {
-	  return idCliente;
-	 }
+	public Integer getCedula() {
+		return Cedula;
+	}
+	public void setCedula(Integer cedula) {
+		Cedula = cedula;
+	}
+	public String getTelefono() {
+		return Telefono;
+	}
+	public void setTelefono(String telefono) {
+		Telefono = telefono;
+	}
+	public String getNombre() {
+		return Nombre;
+	}
+	public void setNombre(String nombre) {
+		Nombre = nombre;
+	}
+	public String getEmail() {
+		return Email;
+	}
+	public void setEmail(String email) {
+		Email = email;
+	}
+	public String getDireccion() {
+		return Direccion;
+	}
+	public void setDireccion(String direccion) {
+		Direccion = direccion;
+	}
 	 
-	 /**
-	  * @param idCliente the idCliente to set
-	  */
-	 public void setIdCliente(Integer idCliente) {
-	  this.idCliente = idCliente;
-	 }
 	 
 	 
-	 /**
-	  * @return the nombreCliente
-	  */
-	 public String getNombreCliente() {
-	  return nombreCliente;
-	 }
-	 /**
-	  * @param nombreCliente the nombreCliente to set
-	  */
-	 public void setNombreCliente(String nombreCliente) {
-	  this.nombreCliente = nombreCliente;
-	 }
-	 
-	 
-	 /**
-	  * @return the nombreCliente
-	  */
-	 public String getApellidoCliente() {
-	  return apellidoCliente;
-	 }
-	 /**
-	  * @param nombreCliente the nombreCliente to set
-	  */
-	 public void setApellidoCliente(String nombreCliente) {
-	  this.apellidoCliente = nombreCliente;
-	 }
 	 
 
 }

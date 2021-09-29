@@ -85,5 +85,29 @@ public class UsuarioDAO {
 			//JOptionPane.showMessageDialog(null, "No se Registro la persona");
 		}
 	}
+	
+	
+	public void ActualizarUsuario(UsuarioVO Usuario) {
+		Conexion conex = new Conexion();
+		try {
+			Statement estatuto = conex.getConnection().createStatement();
+			estatuto.executeUpdate(
+					"UPDATE usuarios SET email_usuario= '"+Usuario.getEmail()+"'"+
+							",nombre_usuario= '"+Usuario.getNombre()+"'"+
+							",password= '"+Usuario.getPassword()+"'"+
+							",usuario= '"+Usuario.getUsuario()+"'"+
+					" Where cedula_usuario = "+Usuario.getDocumento()
+					//"Insert into usuarios values(123456,'admininicial@gmail.com','Admin','admin123456','admininicial');"
+					);
+			/*JOptionPane.showMessageDialog(null, "Se ha registrado Exitosamente", "Información",
+					JOptionPane.INFORMATION_MESSAGE);*/
+			
+			estatuto.close();
+			conex.desconectar();
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+			//JOptionPane.showMessageDialog(null, "No se Registro la persona");
+		}
+	}
 
 }

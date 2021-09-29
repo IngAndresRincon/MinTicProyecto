@@ -9,7 +9,7 @@ import java.sql.*;
  */
 public class Conexion {
    /**Parametros de conexion*/
-   static String bd = "tienda";
+   static String bd = "tienda667";
    static String login = "root";
    static String password = "admin";
    static String url = "jdbc:mysql://localhost/"+bd;

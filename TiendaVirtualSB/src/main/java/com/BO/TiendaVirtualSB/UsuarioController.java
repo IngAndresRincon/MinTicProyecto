@@ -49,5 +49,13 @@ public class UsuarioController {
 	    
 	 }
 	
+	@RequestMapping("/Usuarios")
+	
+	public void ActualizarUsuario(UsuarioVO Documento) 
+	 {
+		UsuarioDAO Dao=new UsuarioDAO(); 
+	    Dao.ActualizarUsuario(Documento);
+	    
+	 }
 	
 }
