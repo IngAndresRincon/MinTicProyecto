@@ -1,32 +1,23 @@
 package com.DAO.TiendaVirtualSB;
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
-import javax.swing.JOptionPane;
-import com.BO.TiendaVirtualSB.*;
+
 import com.DTO.TiendaVirtualSB.ClienteVO;
+import com.DTO.TiendaVirtualSB.ProveedorVO;
 
+public class ProveedorDAO {
 
-import com.DTO.TiendaVirtualSB.UsuarioVO;
-/**
- * Clase que permite el acceso a la base de datos
- * 
- *
- */
-public class ClienteDAO 
-{
+	
+	
 
-
-	public void RegistrarCliente(ClienteVO Cliente) {
+	public void RegistrarProveedor(ProveedorVO Proveedor) {
 		Conexion conex = new Conexion();
 		try {
 			Statement estatuto = conex.getConnection().createStatement();
 			estatuto.executeUpdate(
-					"INSERT INTO clientes VALUES('"+Cliente.getCedula()+
-							"','"+Cliente.getDireccion()+"','"+Cliente.getEmail()+"','"+Cliente.getNombre()+"','"+Cliente.getTelefono()+"');"
+					"INSERT INTO proveedores VALUES('"+Proveedor.getNit()+
+							"','"+Proveedor.getCiudad()+"','"+Proveedor.getDireccion()+"','"+Proveedor.getNombre()+"','"+Proveedor.getTelefono()+"');"
 					//"Insert into usuarios values(123456,'admininicial@gmail.com','Admin','admin123456','admininicial');"
 					);
 			/*JOptionPane.showMessageDialog(null, "Se ha registrado Exitosamente", "Información",
@@ -40,13 +31,13 @@ public class ClienteDAO
 		}
 	}
 
-	public void BorrarCliente(long Documento)
+	public void BorrarProveedor(long Nit)
 	{
 		
 		Conexion conex = new Conexion();
 		try {
 			Statement Query = conex.getConnection().createStatement();
-			Query.executeUpdate("Delete from clientes where cedula_cliente = " + Documento
+			Query.executeUpdate("Delete from proveedores where nitproveedor = " + Nit
 					);
 			/*JOptionPane.showMessageDialog(null, "Se ha registrado Exitosamente", "Información",
 					JOptionPane.INFORMATION_MESSAGE);*/
@@ -59,16 +50,16 @@ public class ClienteDAO
 	}
 	
 	
-	public void ActualizarCliente(ClienteVO Cliente) {
+	public void ActualizarProveedor(ProveedorVO Proveedor) {
 		Conexion conex = new Conexion();
 		try {
 			Statement estatuto = conex.getConnection().createStatement();
 			estatuto.executeUpdate(
-					"UPDATE clientes SET direccion_cliente= '"+Cliente.getDireccion()+"'"+
-							",email_cliente= '"+Cliente.getEmail()+"'"+
-							",nombre_cliente= '"+Cliente.getNombre()+"'"+
-							",telefono_cliente= '"+Cliente.getTelefono()+"'"+
-					" Where cedula_cliente = "+Cliente.getCedula()
+					"UPDATE proveedores SET ciudad_proveedor= '"+Proveedor.getCiudad()+"'"+
+							",direccion_proveedor= '"+Proveedor.getDireccion()+"'"+
+							",nombre_proveedor= '"+Proveedor.getNombre()+"'"+
+							",telefono_proveedor= '"+Proveedor.getTelefono()+"'"+
+					" Where nitproveedor = "+Proveedor.getNit()
 					//"Insert into usuarios values(123456,'admininicial@gmail.com','Admin','admin123456','admininicial');"
 					);
 			/*JOptionPane.showMessageDialog(null, "Se ha registrado Exitosamente", "Información",
@@ -82,6 +73,5 @@ public class ClienteDAO
 		}
 	}
 
-
-
+	
 }

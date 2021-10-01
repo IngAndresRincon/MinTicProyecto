@@ -24,22 +24,22 @@
 		cli.setDireccion(request.getParameter("direccion"));
 		cli.setEmail(request.getParameter("correo"));
 		cli.setNombre(request.getParameter("nombre"));
-		cli.setNombre(request.getParameter("telefono"));
+		cli.setTelefono(request.getParameter("telefono"));
 		cc.RegistrarCliente(cli);	
 	}
 	else if (boton.equals("Borrar"))
 	{
 		long Documento =  Integer.parseInt(request.getParameter("num_cedula"));
-		uc.BorrarUsuario(Documento);	
+		cc.BorrarCliente(Documento);	
 	}
 	else if (boton.equals("Actualizar"))
 	{
-		usu.setDocumento(Integer.parseInt(request.getParameter("num_cedula")));
-		usu.setUsuario(request.getParameter("usuarios"));
-		usu.setNombre(request.getParameter("nombre"));
-		usu.setPassword(request.getParameter("password"));
-		usu.setEmail(request.getParameter("correo"));
-		uc.ActualizarUsuario(usu);	
+		cli.setCedula(Integer.parseInt(request.getParameter("num_cedula")));
+		cli.setDireccion(request.getParameter("direccion"));
+		cli.setEmail(request.getParameter("correo"));
+		cli.setNombre(request.getParameter("nombre"));
+		cli.setTelefono(request.getParameter("telefono"));
+		cc.ActualizarCliente(cli);	
 	}
 		
 	

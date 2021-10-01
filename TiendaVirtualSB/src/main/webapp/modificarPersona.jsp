@@ -11,9 +11,9 @@
 	ClienteController cc=new ClienteController();
 	ClienteVO cli=new ClienteVO();
 	int id=Integer.parseInt(request.getParameter("idcliente"));
-	cli.setNombreCliente(request.getParameter("nombre"));
-	cli.setIdCliente(id);	cli.setApellidoCliente(request.getParameter("apellido"));
-	cc.modificarPersona(cli);
+	//cli.setNombreCliente(request.getParameter("nombre"));
+	//cli.setIdCliente(id);	cli.setApellidoCliente(request.getParameter("apellido"));
+	//cc.modificarPersona(cli);
 %>
 <head>
 <title>Page Redirection</title>
