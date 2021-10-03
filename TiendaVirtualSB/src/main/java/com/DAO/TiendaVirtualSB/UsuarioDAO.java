@@ -109,5 +109,35 @@ public class UsuarioDAO {
 			//JOptionPane.showMessageDialog(null, "No se Registro la persona");
 		}
 	}
+	
+	
+	
+	public ArrayList<UsuarioVO> ConsultarUsuario(long documento) {
+		  ArrayList<UsuarioVO> MiUsuario = new ArrayList<UsuarioVO>();
+		  Conexion conex= new Conexion();
+		    
+		  try {
+		   PreparedStatement consulta = conex.getConnection().prepareStatement("SELECT * FROM usuarios Where cedula_usuario = ?");
+		   consulta.setLong(1, documento);
+		   ResultSet res = consulta.executeQuery();
+		   
+		  if(res.next()){
+			UsuarioVO usuario= new UsuarioVO();
+			usuario.setNombre(res.getString("nombre_usuario"));
+			usuario.setEmail(res.getString("email_usuario"));
+			usuario.setUsuario(res.getString("usuario"));
+			usuario.setPassword(res.getString("password"));
+		 
+			MiUsuario.add(usuario);
+		          }
+		          res.close();
+		          consulta.close();
+		          conex.desconectar();
+		   
+		  } catch (Exception e) {
+		   JOptionPane.showMessageDialog(null, "no se pudo consultar la Persona\n"+e);
+		  }
+		  return MiUsuario;
+		 }
 
 }

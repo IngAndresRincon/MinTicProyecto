@@ -2,7 +2,7 @@
 <html>
 <head>
 	<title>Tienda Genérica</title>
-
+	<script type="text/javascript" src="./archivo.js"></script>
 </head>
 <style type="text/css">
 	*{
@@ -57,7 +57,7 @@
 		margin: 50px auto;
 	}
 	td{
-		padding: 25px 30px;
+		padding: 25px 20px;
 	}
 	h3{
 		font-size: 20px;
@@ -75,6 +75,7 @@
 		padding-top: 20px;
 	}
 
+
 </style>
 <body>
 	<div class="titulo2">
@@ -90,30 +91,17 @@
 			<li><a href="Reportes1.html">Reportes</a></li>
 		</ul>
 	</div>
-	<form action = "Usuarios.jsp" method = "GET">
+	<form id="miform" action = "Productos.jsp" method = "POST">
 		<table class="form_usuarios" style="border: 2px solid darkslategrey;">
 			<tr>
-				<td><h3>Cédula:</h3></td>
-				<td><input type="text" name="num_cedula"></td>
-				<td><h3>Usuario:</h3></td>
-				<td><input type="text" name="usuarios"></td>
+				<td><h3>Nombre del Archivo:</h3></td>
+				<td><input style="width: 220px;" type="file" name="nombre_archivo"></td>				
 			</tr>
 			<tr>
-				<td><h3>Nombre Completo:</h3></td>
-				<td><input type="text" name="nombre"></td>
-				<td><h3>Contraseña:</h3></td>
-				<td><input type="password" name="password"></td>
+				<td class="boton"><input type="submit" name="Cargar" value="Cargar"></td>
+				
 			</tr>
-			<tr>
-				<td><h3>Correo Electrónico:</h3></td>
-				<td><input type="email" name="correo"></td>
-			</tr>
-			<tr>
-				<td class="boton"><input type="submit" name="boton" value="Consultar"></td>
-				<td class="boton"><input type="submit" name="boton" value="Crear" ></td>
-				<td class="boton"><input type="submit" name="boton" value="Actualizar"></td>
-				<td class="boton"><input type="submit" name="boton" value="Borrar"></td>
-			</tr>
+
 		</table>
 
 	</form>

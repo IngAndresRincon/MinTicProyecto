@@ -20,26 +20,75 @@
 	
 	if (boton.equals("Crear"))
 	{
-		cli.setCedula(Integer.parseInt(request.getParameter("num_cedula")));
-		cli.setDireccion(request.getParameter("direccion"));
-		cli.setEmail(request.getParameter("correo"));
-		cli.setNombre(request.getParameter("nombre"));
-		cli.setTelefono(request.getParameter("telefono"));
-		cc.RegistrarCliente(cli);	
+		try
+		{
+			cli.setCedula(Integer.parseInt(request.getParameter("num_cedula")));
+			cli.setDireccion(request.getParameter("direccion"));
+			cli.setEmail(request.getParameter("correo"));
+			cli.setNombre(request.getParameter("nombre"));
+			cli.setTelefono(request.getParameter("telefono"));
+			cc.RegistrarCliente(cli);
+			out.println("<script type=\"text/javascript\">");
+		   	out.println("alert('Cliente creado');");
+		   	out.println("location='Clientes.html';");
+		   	out.println("</script>");
+		}		
+		catch (Exception ex)
+		{
+			out.println("<script type=\"text/javascript\">");
+		   	out.println("alert('Error al crear cliente');");
+		   	out.println("location='Clientes.html';");
+		   	out.println("</script>");
+			
+		}
+
 	}
 	else if (boton.equals("Borrar"))
 	{
-		long Documento =  Integer.parseInt(request.getParameter("num_cedula"));
-		cc.BorrarCliente(Documento);	
+		try
+		{
+			long Documento =  Integer.parseInt(request.getParameter("num_cedula"));
+			cc.BorrarCliente(Documento);
+			out.println("<script type=\"text/javascript\">");
+		   	out.println("alert('Cliente eliminado');");
+		   	out.println("location='Clientes.html';");
+		   	out.println("</script>");
+		}
+		catch (Exception ex)
+		{
+			out.println("<script type=\"text/javascript\">");
+		   	out.println("alert('Error al eliminar cliente');");
+		   	out.println("location='Clientes.html';");
+		   	out.println("</script>");
+			
+		}
+		
+
 	}
 	else if (boton.equals("Actualizar"))
 	{
-		cli.setCedula(Integer.parseInt(request.getParameter("num_cedula")));
-		cli.setDireccion(request.getParameter("direccion"));
-		cli.setEmail(request.getParameter("correo"));
-		cli.setNombre(request.getParameter("nombre"));
-		cli.setTelefono(request.getParameter("telefono"));
-		cc.ActualizarCliente(cli);	
+		try
+		{
+			cli.setCedula(Integer.parseInt(request.getParameter("num_cedula")));
+			cli.setDireccion(request.getParameter("direccion"));
+			cli.setEmail(request.getParameter("correo"));
+			cli.setNombre(request.getParameter("nombre"));
+			cli.setTelefono(request.getParameter("telefono"));
+			cc.ActualizarCliente(cli);	
+			out.println("<script type=\"text/javascript\">");
+		   	out.println("alert('Cliente Actualizado');");
+		   	out.println("location='Clientes.html';");
+		   	out.println("</script>");
+		}
+		catch (Exception ex)
+		{
+			out.println("<script type=\"text/javascript\">");
+		   	out.println("alert('Error al actualizar cliente');");
+		   	out.println("location='Clientes.html';");
+		   	out.println("</script>");
+			
+		}
+	
 	}
 		
 	

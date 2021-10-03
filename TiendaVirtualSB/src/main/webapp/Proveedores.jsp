@@ -20,26 +20,71 @@
 		
 		if (boton.equals("Crear"))
 		{
-			pro.setNit(Integer.parseInt(request.getParameter("nit")));
-			pro.setTelefono(request.getParameter("telefono"));
-			pro.setNombre(request.getParameter("nombre"));
-			pro.setCiudad(request.getParameter("ciudad"));
-			pro.setDireccion(request.getParameter("direccion"));
-			pc.RegistrarProveedor(pro);	
+			try
+			{
+				pro.setNit(Integer.parseInt(request.getParameter("nit")));
+				pro.setTelefono(request.getParameter("telefono"));
+				pro.setNombre(request.getParameter("nombre"));
+				pro.setCiudad(request.getParameter("ciudad"));
+				pro.setDireccion(request.getParameter("direccion"));
+				pc.RegistrarProveedor(pro);	
+			   	out.println("<script type=\"text/javascript\">");
+			   	out.println("alert('Proveedor Creado');");
+			   	out.println("location='Usuarios.html';");
+			   	out.println("</script>");
+			}
+			catch (Exception ex)
+			{
+			   	out.println("<script type=\"text/javascript\">");
+			   	out.println("alert('Error al crear proveedor');");
+			   	out.println("location='Usuarios.html';");
+			   	out.println("</script>");
+			}
+			
 		}
 		else if (boton.equals("Borrar"))
 		{
-			long Nit =  Integer.parseInt(request.getParameter("nit"));
-			pc.BorrarProveedor(Nit);	
+			try
+			{
+				long Nit =  Integer.parseInt(request.getParameter("nit"));
+				pc.BorrarProveedor(Nit);	
+			   	out.println("<script type=\"text/javascript\">");
+			   	out.println("alert('Proveedor Eliminado');");
+			   	out.println("location='Usuarios.html';");
+			   	out.println("</script>");
+			}
+			catch (Exception ex)
+			{
+			   	out.println("<script type=\"text/javascript\">");
+			   	out.println("alert('Error al eliminar proveedor');");
+			   	out.println("location='Usuarios.html';");
+			   	out.println("</script>");
+			}
+
 		}
 		else if (boton.equals("Actualizar"))
 		{
-			pro.setNit(Integer.parseInt(request.getParameter("nit")));
-			pro.setTelefono(request.getParameter("telefono"));
-			pro.setNombre(request.getParameter("nombre"));
-			pro.setCiudad(request.getParameter("ciudad"));
-			pro.setDireccion(request.getParameter("direccion"));
-			pc.ActualizarProveedor(pro);	
+			try
+			{
+				pro.setNit(Integer.parseInt(request.getParameter("nit")));
+				pro.setTelefono(request.getParameter("telefono"));
+				pro.setNombre(request.getParameter("nombre"));
+				pro.setCiudad(request.getParameter("ciudad"));
+				pro.setDireccion(request.getParameter("direccion"));
+				pc.ActualizarProveedor(pro);	
+			   	out.println("<script type=\"text/javascript\">");
+			   	out.println("alert('Proveedor actualizado');");
+			   	out.println("location='Usuarios.html';");
+			   	out.println("</script>");
+			}
+			catch (Exception ex)
+			{
+			   	out.println("<script type=\"text/javascript\">");
+			   	out.println("alert('Error al actualizar proveedor');");
+			   	out.println("location='Usuarios.html';");
+			   	out.println("</script>");
+			}
+
 		}
 	%>	
 </body>
