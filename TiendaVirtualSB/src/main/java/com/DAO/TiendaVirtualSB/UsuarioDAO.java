@@ -110,19 +110,25 @@ public class UsuarioDAO {
 		}
 	}
 	
-	
-	
-	public ArrayList<UsuarioVO> ConsultarUsuario(long documento) {
+	/**
+	 * permite consultar el Cliente asociado al documento enviado
+	 * como parametro 
+	 * @param documento 
+	 * @return
+	 */
+	//ArrayList<UsuarioVO>
+	public  void ConsultarUsuario(long documento) {
 		  ArrayList<UsuarioVO> MiUsuario = new ArrayList<UsuarioVO>();
+		  UsuarioVO usuario= new UsuarioVO();
 		  Conexion conex= new Conexion();
 		    
 		  try {
 		   PreparedStatement consulta = conex.getConnection().prepareStatement("SELECT * FROM usuarios Where cedula_usuario = ?");
 		   consulta.setLong(1, documento);
 		   ResultSet res = consulta.executeQuery();
-		   
+		   usuario.setDocumento((int)(documento));
 		  if(res.next()){
-			UsuarioVO usuario= new UsuarioVO();
+			
 			usuario.setNombre(res.getString("nombre_usuario"));
 			usuario.setEmail(res.getString("email_usuario"));
 			usuario.setUsuario(res.getString("usuario"));
@@ -137,7 +143,7 @@ public class UsuarioDAO {
 		  } catch (Exception e) {
 		   JOptionPane.showMessageDialog(null, "no se pudo consultar la Persona\n"+e);
 		  }
-		  return MiUsuario;
+		  //return MiUsuario;
 		 }
 
 }

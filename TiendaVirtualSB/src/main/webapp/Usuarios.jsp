@@ -97,16 +97,38 @@
 	}
 	else if (boton.equals("Consultar"))
 	{	
-
-			request.setAttribute("nombre","nombre");
-			out.println("<script type=\"text/javascript\">");
-			out.println("location='Usuarios.html';");
-			out.println("</script>");	
-			out.println("nombres");
+		
+		long Documento =  Integer.parseInt(request.getParameter("num_cedula"));
+		uc.ConsultarUsuario(Documento);
+		System.out.println(usu.getNombre());
+		System.out.println(usu.getEmail());
+		System.out.println(usu.getPassword());
+		%>
+		<%! UsuarioVO usu = new UsuarioVO(); 
+		String nombre = usu.getNombre() ;%>		
+				<%= nombre %>
+		
 	
+	<% 
 	}
 
 		
 	%>	
+	<h1>Using GET Method to Read Form Data</h1>
+	<ul>
+		<li><p>
+		<b>First Name:</b>
+		
+			</p></li>
+		<li><p>
+				<b>Last Name:</b>
+				<%= request.getParameter("nombre")%>
+			</p></li>
+		<li><p>
+				<b>Last Name:</b>
+				<%= request.getParameter("apellido")%>
+			</p></li>
+	</ul>
+	
 </body>
 </html>

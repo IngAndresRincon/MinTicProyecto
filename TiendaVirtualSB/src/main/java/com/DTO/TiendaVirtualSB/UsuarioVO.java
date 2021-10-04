@@ -2,11 +2,11 @@ package com.DTO.TiendaVirtualSB;
 
 public class UsuarioVO {
 
-	private Integer Documento;
-	private String Email;
-	private String Nombre;
-	private String Password;
-	private String Usuario;
+	private static Integer Documento;
+	private static String Email;
+	private static String Nombre;
+	private static String Password;
+	private static String Usuario;
 	public static Integer Contador;
 	
 	
