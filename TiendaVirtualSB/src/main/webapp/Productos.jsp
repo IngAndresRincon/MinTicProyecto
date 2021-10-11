@@ -1,4 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+<%@ page
+ language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"
     import="
 		java.io.*,
@@ -7,6 +8,14 @@
 		com.DTO.TiendaVirtualSB.*"
 
     %>
+    
+    <%@ page import="java.util.*" %>
+<%@ page import="org.apache.commons.fileupload.*" %>
+<%@ page import="org.apache.commons.fileupload.disk.*" %>
+<%@ page import="org.apache.commons.fileupload.servlet.*" %>
+<%@ page import="org.apache.commons.io.*" %>
+<%@ page import="java.io.*" %>
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,12 +25,14 @@
 <body>
 	
 	
+	<%=request.getParameterValues("archivo") %>
 	<%	
-
+	
 	try
 	{
-		String rootPath = "D:/Documentos/NetBeans/MinTic Ciclo 3/Documentos Desarrollo/";
-		rootPath = rootPath + request.getParameter("nombre_archivo");
+		
+		String rootPath = "D:/Documentos/NetBeans/MinTic Ciclo 3/Documentos Desarrollo/productos.csv";
+		//rootPath = rootPath + request.getParameter("file");
 		LecturaArchivo la = new LecturaArchivo();
 		String Archivo = rootPath;
 		la.EnviarProductos(Archivo);

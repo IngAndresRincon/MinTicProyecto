@@ -91,14 +91,14 @@
 			<li><a href="Reportes1.html">Reportes</a></li>
 		</ul>
 	</div>
-	<form id="miform" action = "Productos.jsp" method = "POST">
+	<form id="miform" action = "Productos.jsp" method="post" enctype="multipart/form-data">
 		<table class="form_usuarios" style="border: 2px solid darkslategrey;">
 			<tr>
 				<td><h3>Nombre del Archivo:</h3></td>
-				<td><input style="width: 220px;" type="file" name="nombre_archivo"></td>				
+				<td><input style="width: 220px;" type="file" name="archivo"></td>				
 			</tr>
 			<tr>
-				<td class="boton"><input type="submit" name="Cargar" value="Cargar"></td>
+				<td class="boton"><input type="submit" name="Cargar" value="Upload"></td>
 				
 			</tr>
 
