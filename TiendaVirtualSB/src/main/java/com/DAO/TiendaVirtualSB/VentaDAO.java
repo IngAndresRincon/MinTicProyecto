@@ -14,6 +14,7 @@ import com.DTO.TiendaVirtualSB.VentaVO;
 import com.DTO.TiendaVirtualSB.ProductoVO;
 import com.DTO.TiendaVirtualSB.ProductoVO1;
 import com.DTO.TiendaVirtualSB.ProductoVO2;
+import com.DTO.TiendaVirtualSB.UsuarioVO;
 
 public class VentaDAO {
 
@@ -340,5 +341,48 @@ public class VentaDAO {
 		
 		
 	}
+	
+	
+	
+	
+
+
+	/**
+	 * permite consultar la lista de Clientes
+	 * @return
+	 */
+	public ArrayList< VentaVO> listaDeTotalVentas() {
+	  ArrayList< VentaVO> miVenta = new ArrayList< VentaVO>();
+	  Conexion conex= new Conexion();
+	   System.out.println("Llego a la funciòn consultar ventas");
+	  try {
+	   PreparedStatement consulta = conex.getConnection().prepareStatement("Select cli.cedula_cliente,cli.nombre_cliente,SUM(ven.total_venta) as total_venta from clientes as cli "
+	   		+ "inner join ventas as ven ON cli.cedula_cliente = ven.cedula_cliente "
+	   		+ "GROUP BY cli.cedula_cliente,cli.nombre_cliente");
+	   ResultSet res = consulta.executeQuery();
+	   while(res.next()){
+		VentaVO venta= new VentaVO();
+		
+		venta.setCedula_cliente(Integer.parseInt(res.getString("cedula_cliente")));
+		//System.out.println(venta.getCedula_cliente());
+		venta.setNombreCliente(res.getString("nombre_cliente"));
+		//System.out.println(venta.getNombreCliente());
+		venta.setTotal_venta(res.getDouble("total_venta"));
+		//System.out.println(venta.getTotal_venta());
+		
+		
+					  	  
+		miVenta.add(venta);
+	          }
+	          res.close();
+	          consulta.close();
+	          conex.desconectar();
+	   
+	  } catch (Exception e) {
+	   //JOptionPane.showMessageDialog(null, "no se pudo consultar la Persona\n"+e);
+	  }
+	  return miVenta;
+	 }
+
 	
 }

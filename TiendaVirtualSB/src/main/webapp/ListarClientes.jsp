@@ -1,5 +1,4 @@
-<%@ page
- language="java" contentType="text/html; charset=ISO-8859-1"
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
  <html>
@@ -18,23 +17,29 @@
         
     var saveme =  $.ajax({
         type: "POST",
-        url: "http://localhost:8080/listarPersonas", //nombre del archivo php que consultaremos.
+        url: "http://localhost:8080/listarClientes", //nombre del archivo php que consultaremos.
       
         success: function(data) {
           $.each(data, function(i, item) {
           lista = document.getElementById("myTable");
           var tr = document.createElement("tr");
           var columna1 = document.createElement("th")
-          columna1.innerHTML = item.idCliente;
+          columna1.innerHTML = item.cedula;
           var columna2 = document.createElement("th")
-          columna2.innerHTML = item.nombreCliente;
+          columna2.innerHTML = item.nombre;
           var columna3 = document.createElement("th")
-          columna3.innerHTML = item.apellidoCliente;
+          columna3.innerHTML = item.direccion;
+          var columna4 = document.createElement("th")
+          columna4.innerHTML = item.email;
+          var columna5 = document.createElement("th")
+          columna5.innerHTML = item.telefono;
         
           lista.appendChild(tr);
           tr.appendChild(columna1);
           tr.appendChild(columna2);
           tr.appendChild(columna3);
+          tr.appendChild(columna4);
+          tr.appendChild(columna5);
        
          });
         }
@@ -43,19 +48,29 @@
     </script>
 
     </head>
+    
+    
+    
     <body>
     
-    <table id="tabla">
-<thead>
-  <tr>
-    <th>Identidad</th>
-    <th>Nombre</th>
-    <th>Apellido</th>
-
-  </tr>
-</thead>
-<tbody id="myTable">
-</tbody>
+    <table id="tabla" style="border: 2px solid darkslategrey; width: 600px; margin-left:auto; margin-right:auto; margin-bottom:auto;margin-top:auto;">
+        <thead>
+            <tr >
+                <td colspan="5" style="background-color: lightslategrey; text-align:center">
+                    <h1>Reporte Clientes</h1>
+                </td>
+            </tr>
+          <tr style="background-color: tomato;">
+            <th>Documento</th>
+            <th>Nombre</th>
+            <th>Direccion</th>
+            <th>Email</th>
+            <th>Telefono</th>
+        
+          </tr>
+        </thead>
+        <tbody id="myTable">
+        </tbody>
     
     </body>
     </html>

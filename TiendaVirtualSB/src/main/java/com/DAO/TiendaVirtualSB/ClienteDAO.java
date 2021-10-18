@@ -10,6 +10,7 @@ import com.BO.TiendaVirtualSB.*;
 import com.DTO.TiendaVirtualSB.ClienteVO;
 
 
+
 import com.DTO.TiendaVirtualSB.UsuarioVO;
 /**
  * Clase que permite el acceso a la base de datos
@@ -119,7 +120,42 @@ public class ClienteDAO
 		  }
 		  return cliente;
 		 }
-	
+
+
+	/**
+	 * permite consultar la lista de Clientes
+	 * @return
+	 */
+	public ArrayList< ClienteVO> listaDeClientes() {
+	  ArrayList< ClienteVO> miCliente = new ArrayList< ClienteVO>();
+	  Conexion conex= new Conexion();
+	   System.out.println("Llego a la funciòn consultar");
+	  try {
+	   PreparedStatement consulta = conex.getConnection().prepareStatement("SELECT * FROM clientes");
+	   ResultSet res = consulta.executeQuery();
+	   while(res.next()){
+	    ClienteVO persona= new ClienteVO();
+	    persona.setCedula(Integer.parseInt(res.getString("cedula_cliente")));
+	    System.out.println(persona.getCedula());
+	    persona.setNombre(res.getString("nombre_cliente"));
+	    System.out.println(persona.getNombre());
+	    persona.setDireccion(res.getString("direccion_cliente"));
+	    System.out.println(persona.getDireccion());
+	    
+	    persona.setEmail(res.getString("email_cliente"));
+	    persona.setTelefono(res.getString("telefono_cliente"));
+	  
+	    miCliente.add(persona);
+	          }
+	          res.close();
+	          consulta.close();
+	          conex.desconectar();
+	   
+	  } catch (Exception e) {
+	   //JOptionPane.showMessageDialog(null, "no se pudo consultar la Persona\n"+e);
+	  }
+	  return miCliente;
+	 }
 
 
 }

@@ -176,7 +176,7 @@
 			<li><a href="Proveedores.html">Proveedores</a></li>
 			<li><a href="Productos.html">Productos</a></li>
 			<li><a href="Ventas.html">Ventas</a></li>
-			<li><a href="Reportes1.html">Reportes</a></li>
+			<li><a href="Reporte1.html">Reportes</a></li>
 		</ul>
 	</div>
 	<% if(request.getParameter("nit")==null){  System.out.println("Entro al if"); %>

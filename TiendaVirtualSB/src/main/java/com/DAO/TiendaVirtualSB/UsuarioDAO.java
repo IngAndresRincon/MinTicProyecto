@@ -148,5 +148,42 @@ public class UsuarioDAO {
 		  }
 		  return usuario;
 		 }
+	
+	
+
+	/**
+	 * permite consultar la lista de Clientes
+	 * @return
+	 */
+	public ArrayList< UsuarioVO> listaDeUsuarios() {
+	  ArrayList< UsuarioVO> miUsuario = new ArrayList< UsuarioVO>();
+	  Conexion conex= new Conexion();
+	   System.out.println("Llego a la funciòn consultar usuarios");
+	  try {
+	   PreparedStatement consulta = conex.getConnection().prepareStatement("SELECT * FROM usuarios");
+	   ResultSet res = consulta.executeQuery();
+	   while(res.next()){
+		UsuarioVO usuario= new UsuarioVO();
+		
+		usuario.setDocumento(Integer.parseInt(res.getString("cedula_usuario")));
+		usuario.setEmail(res.getString("email_usuario"));
+		usuario.setNombre(res.getString("nombre_usuario"));
+		System.out.println(usuario.getNombre());
+		usuario.setPassword(res.getString("password"));
+		usuario.setUsuario(res.getString("usuario"));
+		System.out.println(usuario.getUsuario());
+					  	  
+		miUsuario.add(usuario);
+	          }
+	          res.close();
+	          consulta.close();
+	          conex.desconectar();
+	   
+	  } catch (Exception e) {
+	   //JOptionPane.showMessageDialog(null, "no se pudo consultar la Persona\n"+e);
+	  }
+	  return miUsuario;
+	 }
+
 
 }

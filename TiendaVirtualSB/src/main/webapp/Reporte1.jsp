@@ -1,9 +1,69 @@
+<%@ page
+    import="
+        java.io.*,
+        java.util.*,
+        com.BO.TiendaVirtualSB.*,
+        com.DTO.TiendaVirtualSB.*"
+%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Tienda Genérica</title>
+<meta charset="ISO-8859-1">
+<script src="/path/to/jquery.js" type="text/javascript"></script>
+<script src="/path/to/jquery.ui.draggable.js" type="text/javascript"></script>
+
+<script src="/path/to/jquery.alerts.js" type="text/javascript"></script>
+<link href="/path/to/jquery.alerts.css" rel="stylesheet" type="text/css" media="screen" />
+
+<title>Page Redirection</title>
+
+		<% 
+		
+		  
+			String boton=request.getParameter("boton");
+		
+			switch(boton)
+			{
+			case "ListadodeUsuarios":
+				//System.out.println("No hay nada");
+				
+				out.println("<script type=\"text/javascript\">");
+			   	out.println("location='ListarUsuarios.jsp';");
+			   	out.println("</script>");
+				
+				break;
+				
+			case "ListadodeClientes":
+				
+				out.println("<script type=\"text/javascript\">");
+			   	out.println("location='ListarClientes.jsp';");
+			   	out.println("</script>");
+				
+				break;
+				
+			case "VentasporCliente":
+
+				out.println("<script type=\"text/javascript\">");
+			   	out.println("location='ListaTotalVentas.jsp';");
+			   	out.println("</script>");
+				
+				break;
+				
+			default:
+				break;
+			
+			}
+		
+	
+		
+		%>
+
 
 </head>
+
+
 <style type="text/css">
 	*{
 		margin:0px;

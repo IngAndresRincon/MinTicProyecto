@@ -1,6 +1,19 @@
 package com.BO.TiendaVirtualSB;
 
+import java.util.ArrayList;
+
 import org.springframework.web.bind.annotation.RequestMapping;
+
+
+import java.util.ArrayList;
+import java.util.HashMap;
+
+import org.springframework.boot.json.GsonJsonParser;
+import org.springframework.boot.json.JsonParser;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import com.fasterxml.jackson.databind.JsonNode;
+
 
 import com.DAO.TiendaVirtualSB.VentaDAO;
 import com.DTO.TiendaVirtualSB.VentaVO;
@@ -10,12 +23,14 @@ import com.DAO.TiendaVirtualSB.ClienteDAO;
 import com.DTO.TiendaVirtualSB.ClienteVO;
 
 import com.DAO.TiendaVirtualSB.ProductosDAO;
+import com.DAO.TiendaVirtualSB.UsuarioDAO;
 import com.DTO.TiendaVirtualSB.ProductoVO;
 
 import com.DTO.TiendaVirtualSB.ProductoVO1;
 import com.DTO.TiendaVirtualSB.ProductoVO2;
+import com.DTO.TiendaVirtualSB.UsuarioVO;
 
-
+@RestController
 public class VentaController {
 
 @RequestMapping("/Ventas")
@@ -61,6 +76,17 @@ public class VentaController {
 		ProductoVO2 pro3 = new ProductoVO2();
 		pro3 = Dao.ConsultarProducto3(producto,cantidad);
 		return pro3;		
+	}
+	
+	
+	
+	@RequestMapping("/listaTotalVentas")
+	//ArrayList<UsuarioVO>
+	public ArrayList< VentaVO> listaDeTotalVentas() {
+		VentaDAO Dao=new VentaDAO(); 
+			
+		return Dao.listaDeTotalVentas();
+		
 	}
 	
 	

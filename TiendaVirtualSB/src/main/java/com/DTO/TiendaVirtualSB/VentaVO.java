@@ -10,7 +10,16 @@ public class VentaVO {
 		public Integer cantidad;
 		
 		
+		public String nombreCliente;
 		
+
+		
+		public String getNombreCliente() {
+			return nombreCliente;
+		}
+		public void setNombreCliente(String nombreCliente) {
+			this.nombreCliente = nombreCliente;
+		}
 		public Integer getCantidad() {
 			return cantidad;
 		}

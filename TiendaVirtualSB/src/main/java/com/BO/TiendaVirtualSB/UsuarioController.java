@@ -17,7 +17,7 @@ import com.DTO.TiendaVirtualSB.UsuarioVO;
 import com.fasterxml.jackson.databind.JsonNode;
 
 
-
+@RestController
 public class UsuarioController {
 
 	
@@ -40,7 +40,7 @@ public class UsuarioController {
 	 }
 	
 	
-	@RequestMapping("/Usuarios")
+	//@RequestMapping("/Usuarios")
 	
 	public void BorrarUsuario(long Documento) 
 	 {
@@ -49,7 +49,7 @@ public class UsuarioController {
 	    
 	 }
 	
-	@RequestMapping("/Usuarios")
+	//@RequestMapping("/Usuarios")
 	
 	public void ActualizarUsuario(UsuarioVO Documento) 
 	 {
@@ -65,8 +65,21 @@ public class UsuarioController {
 		UsuarioDAO Dao=new UsuarioDAO(); 
 		return Dao.ConsultarUsuario(documento);
 	//return 	Dao.ConsultarUsuario(documento);
+			
+	}
 	
+
+	@RequestMapping("/listarUsuarios")
+	//ArrayList<UsuarioVO>
+	public ArrayList< UsuarioVO> listaDeUsuarios() {
+		UsuarioDAO Dao=new UsuarioDAO(); 
+			
+		return Dao.listaDeUsuarios();
 		
 	}
+	
+	
+	
+	
 	
 }

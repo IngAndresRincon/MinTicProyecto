@@ -44,17 +44,21 @@ public class ClienteController {
 //
 //
 //
-//	/**
-//	 * permite consultar la lista de Clientes
-//	 * @return
-//	 */
-//	@RequestMapping("/listarPersonas")
-//	public ArrayList< ClienteVO> listaDePersonas() {
-//		ClienteDAO Dao=new ClienteDAO(); 
-//			
-//		return Dao.listaDePersonas();
-//		
-//	}
+	/**
+	 * permite consultar la lista de Clientes
+	 * @return
+	 */
+	@RequestMapping("/listarClientes")
+	public ArrayList< ClienteVO> listaDeClientes() {
+		ClienteDAO Dao=new ClienteDAO(); 
+			
+		return Dao.listaDeClientes();
+		
+	}
+	
+
+	
+	
 //
 //	
 //	/**
