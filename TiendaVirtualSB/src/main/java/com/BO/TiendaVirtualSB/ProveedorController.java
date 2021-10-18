@@ -34,4 +34,10 @@ public class ProveedorController {
 	    
 	 }
 	
+	public ProveedorVO ConsultarProveedor(long Nit)
+	{
+		ProveedorDAO Dao=new ProveedorDAO(); 
+	    return Dao.ConsultarProveedor(Nit);
+	}
+	
 }

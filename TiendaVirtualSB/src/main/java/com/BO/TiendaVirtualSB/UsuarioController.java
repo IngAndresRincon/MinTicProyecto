@@ -61,9 +61,9 @@ public class UsuarioController {
 	
 	@RequestMapping("/consultarPersona")
 	//ArrayList<UsuarioVO>
-	public void ConsultarUsuario(long documento) {
+	public UsuarioVO ConsultarUsuario(long documento) {
 		UsuarioDAO Dao=new UsuarioDAO(); 
-		Dao.ConsultarUsuario(documento);
+		return Dao.ConsultarUsuario(documento);
 	//return 	Dao.ConsultarUsuario(documento);
 	
 		

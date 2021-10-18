@@ -2,9 +2,9 @@ package com.DTO.TiendaVirtualSB;
 
 public class ClienteVO {
 	
-	 private Integer Cedula;
+	 private static Integer Cedula;
 	 private String Telefono;
-	 private String Nombre;
+	 private static String Nombre;
 	 private String Email;
 	 private String Direccion;
 	 

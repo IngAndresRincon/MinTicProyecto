@@ -1,6 +1,6 @@
 package com.DTO.TiendaVirtualSB;
 
-public class ProductoVO {
+public class ProductoVO1 {
 
 	private static int codigo_producto;
 	private static double ivacompra;
@@ -13,12 +13,12 @@ public class ProductoVO {
 	
 
 
-	public ProductoVO()
+	public ProductoVO1()
 	{
 		
 	}
 	
-	public ProductoVO(int codigo_producto, double ivacompra, int nit_proveedor, String nombre_producto,
+	public ProductoVO1(int codigo_producto, double ivacompra, int nit_proveedor, String nombre_producto,
 			double precio_compra, double precioventa) {
 		super();
 		this.codigo_producto = codigo_producto;
@@ -34,7 +34,7 @@ public class ProductoVO {
 	}
 
 	public static void setCodigo_producto(int codigo_producto) {
-		ProductoVO.codigo_producto = codigo_producto;
+		ProductoVO1.codigo_producto = codigo_producto;
 	}
 
 	public static double getIvacompra() {
@@ -42,7 +42,7 @@ public class ProductoVO {
 	}
 
 	public static void setIvacompra(double ivacompra) {
-		ProductoVO.ivacompra = ivacompra;
+		ProductoVO1.ivacompra = ivacompra;
 	}
 
 	public static int getNit_proveedor() {
@@ -50,7 +50,7 @@ public class ProductoVO {
 	}
 
 	public static void setNit_proveedor(int nit_proveedor) {
-		ProductoVO.nit_proveedor = nit_proveedor;
+		ProductoVO1.nit_proveedor = nit_proveedor;
 	}
 
 	public static String getNombre_producto() {
@@ -58,7 +58,7 @@ public class ProductoVO {
 	}
 
 	public static void setNombre_producto(String nombre_producto) {
-		ProductoVO.nombre_producto = nombre_producto;
+		ProductoVO1.nombre_producto = nombre_producto;
 	}
 
 	public static double getPrecio_compra() {
@@ -66,7 +66,7 @@ public class ProductoVO {
 	}
 
 	public static void setPrecio_compra(double precio_compra) {
-		ProductoVO.precio_compra = precio_compra;
+		ProductoVO1.precio_compra = precio_compra;
 	}
 
 	public static double getPrecioventa() {
@@ -74,7 +74,7 @@ public class ProductoVO {
 	}
 
 	public static void setPrecioventa(double precioventa) {
-		ProductoVO.precioventa = precioventa;
+		ProductoVO1.precioventa = precioventa;
 	}
 
 	public static int getCantidad() {
@@ -84,6 +84,7 @@ public class ProductoVO {
 	public static void setCantidad(int cantidad) {
 		Cantidad = cantidad;
 	}
+	
 	
 	
 }

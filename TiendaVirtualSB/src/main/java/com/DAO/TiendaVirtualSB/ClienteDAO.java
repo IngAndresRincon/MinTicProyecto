@@ -82,6 +82,44 @@ public class ClienteDAO
 		}
 	}
 
+	
+	
+	public  ClienteVO ConsultarCliente (long documento) {
+		  ArrayList<ClienteVO> MiUsuario = new ArrayList<ClienteVO>();
+		  ClienteVO cliente= new ClienteVO();
+		  Conexion conex= new Conexion();
+		  System.out.println("LLego al mètodo");
+		  try {
+		   PreparedStatement consulta = conex.getConnection().prepareStatement("SELECT * FROM clientes Where cedula_cliente = ?");
+		   consulta.setLong(1, documento);
+		   ResultSet res = consulta.executeQuery();
+		   cliente.setCedula((int)(documento));
+		   System.out.println("LLego a consultar ");
+		   
+		  if(res.next()){
+			
+			cliente.setNombre(res.getString("nombre_cliente"));
+			System.out.println(cliente.getNombre());
+			cliente.setDireccion(res.getString("direccion_cliente"));
+			System.out.println(cliente.getDireccion());
+			cliente.setEmail(res.getString("email_cliente"));
+			System.out.println(cliente.getEmail());
+			cliente.setTelefono(res.getString("telefono_cliente"));
+			System.out.println(cliente.getTelefono());
+			  		 
+			MiUsuario.add(cliente);
+		  	}
+		          res.close();
+		          consulta.close();
+		          conex.desconectar();
+		   
+		  } catch (Exception e) {
+		   //JOptionPane.showMessageDialog(null, "no se pudo consultar la Persona\n"+e);
+			  System.out.println(e.getMessage());
+		  }
+		  return cliente;
+		 }
+	
 
 
 }

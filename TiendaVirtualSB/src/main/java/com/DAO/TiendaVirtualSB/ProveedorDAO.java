@@ -1,7 +1,10 @@
 package com.DAO.TiendaVirtualSB;
 
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 import com.DTO.TiendaVirtualSB.ClienteVO;
 import com.DTO.TiendaVirtualSB.ProveedorVO;
@@ -72,6 +75,40 @@ public class ProveedorDAO {
 			//JOptionPane.showMessageDialog(null, "No se Registro la persona");
 		}
 	}
+	
+
+	public  ProveedorVO ConsultarProveedor (long Nit) {
+		  ArrayList<ProveedorVO> MiProveedor = new ArrayList<ProveedorVO>();
+		  ProveedorVO proveedor= new ProveedorVO();
+		  Conexion conex= new Conexion();
+		  System.out.println("LLego al mètodo");
+		  try {
+		   PreparedStatement consulta = conex.getConnection().prepareStatement("SELECT * FROM proveedores Where nitproveedor = ?");
+		   consulta.setLong(1, Nit);
+		   ResultSet res = consulta.executeQuery();
+		   proveedor.setNit((int)(Nit));
+		   System.out.println("LLego a consultar ");
+		   
+		  if(res.next()){
+			
+			  proveedor.setCiudad(res.getString("ciudad_proveedor"));
+			  proveedor.setDireccion(res.getString("direccion_proveedor"));
+			  proveedor.setNombre(res.getString("nombre_proveedor"));
+			  proveedor.setTelefono(res.getString("telefono_proveedor"));
+			  		 
+			  MiProveedor.add(proveedor);
+		  	}
+		          res.close();
+		          consulta.close();
+		          conex.desconectar();
+		   
+		  } catch (Exception e) {
+		   //JOptionPane.showMessageDialog(null, "no se pudo consultar la Persona\n"+e);
+			  System.out.println(e.getMessage());
+		  }
+		  return proveedor;
+		 }
+	
 
 	
 }

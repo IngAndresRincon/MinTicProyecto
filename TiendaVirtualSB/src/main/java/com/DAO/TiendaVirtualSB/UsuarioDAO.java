@@ -117,16 +117,18 @@ public class UsuarioDAO {
 	 * @return
 	 */
 	//ArrayList<UsuarioVO>
-	public  void ConsultarUsuario(long documento) {
+	public  UsuarioVO ConsultarUsuario(long documento) {
 		  ArrayList<UsuarioVO> MiUsuario = new ArrayList<UsuarioVO>();
 		  UsuarioVO usuario= new UsuarioVO();
 		  Conexion conex= new Conexion();
-		    
+		  System.out.println("LLego al mètodo");
 		  try {
 		   PreparedStatement consulta = conex.getConnection().prepareStatement("SELECT * FROM usuarios Where cedula_usuario = ?");
 		   consulta.setLong(1, documento);
 		   ResultSet res = consulta.executeQuery();
 		   usuario.setDocumento((int)(documento));
+		   System.out.println("LLego a consultar ");
+		   
 		  if(res.next()){
 			
 			usuario.setNombre(res.getString("nombre_usuario"));
@@ -141,9 +143,10 @@ public class UsuarioDAO {
 		          conex.desconectar();
 		   
 		  } catch (Exception e) {
-		   JOptionPane.showMessageDialog(null, "no se pudo consultar la Persona\n"+e);
+		   //JOptionPane.showMessageDialog(null, "no se pudo consultar la Persona\n"+e);
+			  System.out.println(e.getMessage());
 		  }
-		  //return MiUsuario;
+		  return usuario;
 		 }
 
 }

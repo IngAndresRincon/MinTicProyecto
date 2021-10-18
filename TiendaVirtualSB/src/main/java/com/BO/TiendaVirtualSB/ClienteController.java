@@ -100,6 +100,13 @@ public class ClienteController {
 	    
 	 }
 	
+	public ClienteVO ConsultarCliente(long Documento) 
+	 {
+		ClienteDAO Dao=new ClienteDAO(); 
+	    return Dao.ConsultarCliente(Documento);
+	    
+	 }
+	
 
 
 }
